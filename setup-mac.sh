@@ -22,5 +22,8 @@ vim +PackerInstall +qall
 vim +PlugInstall +qall
 nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 chsh -s /bin/zsh
+zsh
+git clone https://github.com/jackhamilton/SwiftAssist.git SwiftAssist
+sh SwiftAssist/install.sh
+rm -rf SwiftAssist
 read -p "Please set your iterm font to Inconsolata 16pt, and download a theme from https://iterm2colorschemes.com/. Dracula+ is good."
-read -p "Open vim and run the following commands to complete setup: :PlugInstall, :PluginInstall, :PackerInstall"
