@@ -29,4 +29,7 @@ zsh
 git clone https://github.com/jackhamilton/SwiftAssist.git SwiftAssist
 sh SwiftAssist/install.sh
 rm -rf SwiftAssist
+cd ~
+echo "*.DS_STORE" > .gitignore_global
+git config --global core.excludesfile ~/.gitignore_global
 read -p "Please set your iterm font to Inconsolata 16pt, and download a theme from https://iterm2colorschemes.com/. Dracula+ is good."
