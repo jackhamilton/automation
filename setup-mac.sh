@@ -2,34 +2,35 @@
 brew install npm
 brew install iterm
 brew install neovim
-brew install rbenv
 brew install gh
+brew install sccache
+brew install bat
+brew install lsd
+brew install direnv
+brew install zoxide
+brew install qmk
+brew install pipx
+brew install python3
+brew install tree
+brew install rvm
 npm install -g quicktype
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+mkdir ~/Documents/GitHub
+cd ~/Documents/GitHub
 git clone https://github.com/powerline/fonts.git --depth=1
 cd fonts
 ./install.sh
 cd ..
 rm -rf fonts
-git clone https://github.com/jackhamilton/dotfiles.git ~/Documents/GitHub/dotfiles
-cd ~/Documents/GitHub/dotfiles
-cp -r .config ~
-cp .vimrc ~/
-cp .zshrc ~/
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-git clone --depth 1 https://github.com/wbthomason/packer.nvim\
- ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-vim +PluginInstall +qall
-vim +PackerInstall +qall
-vim +PlugInstall +qall
-nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply jackhamilton
 chsh -s /bin/zsh
 zsh
-git clone https://github.com/jackhamilton/SwiftAssist.git SwiftAssist
+gh repo clone jackhamilton/SwiftAssist
 sh SwiftAssist/install.sh
-rm -rf SwiftAssist
-cd ~
-echo "*.DS_STORE" > .gitignore_global
 git config --global core.excludesfile ~/.gitignore_global
-read -p "Please set your iterm font to Inconsolata 16pt, and download a theme from https://iterm2colorschemes.com/. Dracula+ is good."
+git clone https://github.com/ColemakMods/mod-dh.gitignore_global
+cp -r '/mod-dh/macOS/Colemak DH.bundle/' ~/Library/Keyboard\ Layouts/
+rm -rf mod-dh
+gh repo clone git@github.com:jackhamilton/miryoku_qmk.git
+read -p "Please set your iterm font to Inconsolata 16pt, and download a theme from https://iterm2colorschemes.com/. Dracula+ is good. Keyboard layout config also cannot be done automatically."
